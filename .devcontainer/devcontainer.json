@@ -6,7 +6,7 @@
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder}/src,target=/workspace,type=bind,consistency=cached",
   "appPort": [
-    "80:80"
+    "2080:80"
   ],
   "customizations": {
     "vscode": {

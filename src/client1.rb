@@ -24,6 +24,9 @@ socket = TCPSocket.open(host, 80)
 socket.print("GET #{path} HTTP/1.1\r\nHost: #{host}\r\n\r\n")
 # socket.print("GET #{path} HTTP/1.1\r\nHost: #{host}\r\nConnection: close\r\n\r\n")
 
+# ヘッダー情報を表示しないように改良
+is_find_empty_line = false # 空行が見つかるまでの行は false
 while line = socket.gets&.chomp
-  pp line
+  puts line if is_find_empty_line
+  is_find_empty_line ||= line.empty?
 end

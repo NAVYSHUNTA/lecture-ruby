@@ -16,8 +16,17 @@ require "socket"
 # ./client1.rb host path
 # ./client1.rb www.is.kyusan-u.ac.jp /~toshi/
 # host, path = ARGV
-host = ARGV[0]
-path = ARGV[1]
+
+# URL を引数に与えたい。URL は次の形式であるとする。
+# http://ホスト名/パス名/
+# ./client1.rb http://www.is.kyusan-u.ac.jp/~toshi/
+url = ARGV[0]
+
+url_remove_http = url.gsub("http://", "")
+# url_remove_http = url[7..] # こちらでもよい
+
+host, path = url_remove_http.split "/"
+path = "/#{path}/"
 
 # socket = TCPSocket.open(host, "http") # code /etc/services
 socket = TCPSocket.open(host, 80)

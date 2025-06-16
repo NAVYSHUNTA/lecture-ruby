@@ -13,6 +13,8 @@ end
 
 # ポート番号 80 番で open
 s0 = TCPServer.open(80)
-socket = s0.accept
-server socket
+
+while socket = s0.accept
+  server socket
+end
 s0.close

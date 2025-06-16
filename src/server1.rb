@@ -7,6 +7,7 @@ require "socket"
 def server socket
   while buf = socket.gets
     p buf
+    socket.puts "reply: #{buf}"
   end
   socket.close
 end
@@ -15,6 +16,8 @@ end
 s0 = TCPServer.open(80)
 
 while socket = s0.accept
-  server socket
+  Thread.new do
+    server socket
+  end
 end
 s0.close

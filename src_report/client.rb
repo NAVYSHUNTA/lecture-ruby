@@ -5,8 +5,7 @@ require "socket"
 def main
   socket = TCPSocket.open "localhost", 80
 
-  socket.puts "Hello, Server!"
-  socket.puts "Have a nice day!"
+  socket.puts "EXIST ABC 001"
   socket.puts ""
 
   while line = socket.gets&.chomp

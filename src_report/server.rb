@@ -27,7 +27,7 @@ def handle_atcoder_method line
   contest_number_three_digits = format "%03d", contest_number
   url = "https://atcoder.jp/contests/#{contest_name_downcase}#{contest_number_three_digits}/"
 
-  case method
+  case method.upcase
   when "EXIST"
     sleep 1 # 短時間で頻繁にサーバへアクセスしないようにするため
     contest = "#{contest_name_upcase}#{contest_number_three_digits}"

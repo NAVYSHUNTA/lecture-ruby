@@ -5,14 +5,18 @@ require "socket"
 def main
   socket = TCPSocket.open "localhost", 80
 
-  socket.puts "Hello, Server!"
-  socket.puts "Have a nice day!"
-  socket.puts ""
+  loop do
+    client_message = gets&.chomp
+    break if ["exit", ""].include? client_message
 
-  while line = socket.gets&.chomp
-    puts line
-    break if line.empty?
+    puts "send: #{client_message}"
+    socket.puts client_message
+    while line = socket.gets&.chomp
+      puts line
+      break if line.empty?
+    end
   end
+  puts "exit client"
   socket.close
 end
 

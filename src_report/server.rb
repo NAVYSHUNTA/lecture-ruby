@@ -17,6 +17,8 @@ end
 def handle_atcoder_method line
   method, contest_name, contest_number = line.split
 
+  return "メソッド名とコンテスト名、コンテスト番号のうちいずれかが記入されていません" if method.nil? || contest_name.nil? || contest_number.nil?
+
   contest_name_upcase = contest_name.upcase
   contest_name_downcase = contest_name.downcase
 
@@ -47,7 +49,7 @@ end
 
 # 当該ソケットに対する処理
 def server socket
-  until (line = socket.gets&.chomp).empty?
+  while line = socket.gets&.chomp
     puts "log: #{line}"
     result = handle_atcoder_method line
     socket.puts result

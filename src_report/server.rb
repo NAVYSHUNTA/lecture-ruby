@@ -9,8 +9,8 @@ CONTEST_NAME = ["ABC", "ARC", "AGC"]
 # 指定した URL が存在するかどうか
 def url_exist? url
   uri = URI.parse url
-  result = Net::HTTP.get_response uri
-  result.code == HTTP_200_OK_CODE
+  response_result = Net::HTTP.get_response uri
+  response_result.code == HTTP_200_OK_CODE
 end
 
 # ATCODER プロトコルの各メソッドに対する処理

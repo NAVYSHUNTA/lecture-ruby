@@ -11,7 +11,8 @@ def main
 
     puts "send: #{client_message}"
     socket.puts client_message
-    while line = socket.gets&.chomp
+    loop do
+      line = socket.gets&.chomp
       puts line
       break if line.empty?
     end

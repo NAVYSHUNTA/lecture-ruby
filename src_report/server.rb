@@ -13,7 +13,7 @@ def url_exist? url
   response_result.code == HTTP_200_OK_CODE
 end
 
-# ATCODER プロトコルの各メソッドに対する処理
+# ATCODERP の各メソッドに対する処理
 def handle_atcoder_method line
   method, contest_name, contest_number = line.split
 

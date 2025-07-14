@@ -17,12 +17,12 @@ end
 def handle_atcoder_method line
   method, contest_name, contest_number = line.split
 
-  return "メソッド名とコンテスト名、コンテスト番号のうちいずれかが記入されていません" if method.nil? || contest_name.nil? || contest_number.nil?
+  return "メソッド名とコンテスト名称、コンテスト番号のうちいずれかが記入されていません" if method.nil? || contest_name.nil? || contest_number.nil?
 
   contest_name_upcase = contest_name.upcase
   contest_name_downcase = contest_name.downcase
 
-  return "コンテスト名が適切ではありません" unless CONTEST_NAME.include? contest_name_upcase
+  return "コンテスト名称が適切ではありません" unless CONTEST_NAME.include? contest_name_upcase
   return "コンテスト番号が整数ではありません" unless contest_number =~ /^[0-9]+$/
   return "コンテスト番号が 3 桁以下の正整数で指定されていません" if contest_number.length > 3 || contest_number.to_i <= 0
 

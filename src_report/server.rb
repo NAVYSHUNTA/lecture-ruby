@@ -26,7 +26,7 @@ def handle_atcoder_method line
   return "コンテスト番号が整数ではありません" unless contest_number =~ /^[0-9]+$/
   return "コンテスト番号が 3 桁以下の正整数で指定されていません" if contest_number.length > 3 || contest_number.to_i <= 0
 
-  contest_number_three_digits = format "%03d", contest_number
+  contest_number_three_digits = format "%03d", contest_number.to_i
   url = "https://atcoder.jp/contests/#{contest_name_downcase}#{contest_number_three_digits}/"
 
   case method.upcase
